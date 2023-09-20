@@ -1,54 +1,17 @@
-# Astro Starter Kit: Basics
+# Google Sheets Stream
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is a statically hosted JAMStack website built with Astro and deployed and updated with Vercel.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This site uses the Server Side Rendering (SSR) mode of Astro to fetch data from a Google Sheet and render it as a static site. Not only that, the site will update itself whenever a user reloads or navigates to the site and Vercel detects a change in the Google Sheet.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Astro SSR with Vercel's Adapter
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+More information on Astro's SSR here: [https://docs.astro.build/en/guides/server-side-rendering/#enabling-ssr-in-your-project](https://docs.astro.build/en/guides/server-side-rendering/#enabling-ssr-in-your-project)
 
-## 🚀 Project Structure
+## OpenSheet API
 
-Inside of your Astro project, you'll see the following folders and files:
+[Opensheet](https://github.com/benborgers/opensheet) allows users to get Google Sheet data as JSON with no authentication required.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Adjusting Google Sheet
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Simply change the data source in `src/pages/index.astro` to your own Google Sheet. The data source is the `fetch` function in the `data` prop of the `Page` component. Copy your Google Sheet's URL and replace the URL after `https://opensheet.elk.sh/` with your own Google Sheet's URL. more information on formatting the link can be found [here](https://github.com/benborgers/opensheet#documentation)

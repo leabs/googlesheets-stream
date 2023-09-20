@@ -17,14 +17,13 @@ if (!data) {
 <Layout title="Welcome to Astro.">
   <main>
     <h1>Google Sheet Live Update</h1>
-   {
- data.map((item: { name: string, description: string }) => (
-	   <div>
-		 <h2>{item.name}</h2>
-		 <p>{item.description}</p>
-	   </div>
-	 ))
-   }
+    {
+      data.map((item: { name: string; }) => (
+        <div>
+          <h2>{item.name}</h2>
+        </div>
+      ))
+    }
   </main>
 </Layout>
 
