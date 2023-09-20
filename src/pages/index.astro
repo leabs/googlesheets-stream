@@ -18,7 +18,7 @@ if (!data) {
   <main>
     <h1>Google Sheet Live Update</h1>
    {
-	 data.map((item) => (
+ data.map((item: { name: string, description: string }) => (
 	   <div>
 		 <h2>{item.name}</h2>
 		 <p>{item.description}</p>
