@@ -6,6 +6,15 @@ const response = await fetch(
 );
 const data = await response.json();
 
+import type { APIRoute } from "astro";
+export const GET: APIRoute = (data) => {
+  return new Response(
+    JSON.stringify({
+      message: "This was a GET!",
+    })
+  );
+};
+
 // No product found
 if (!data) {
   return {
@@ -18,9 +27,11 @@ if (!data) {
   <main>
     <h1>Google Sheet Live Update</h1>
     {
-      data.map((item: { name: string; }) => (
+      data.map((item: { name: string }) => (
         <div>
-          <h2>{item.name}</h2>
+          <h2>
+            <a href={item.name}>{item.name}</a>
+          </h2>
         </div>
       ))
     }
